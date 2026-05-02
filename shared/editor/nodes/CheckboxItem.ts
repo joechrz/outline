@@ -50,6 +50,7 @@ export default class CheckboxItem extends Node {
           input.setAttribute("aria-labelledby", id);
           input.setAttribute("role", "checkbox");
           input.addEventListener("click", this.handleClick);
+          input.addEventListener("touchend", this.handleTouchEnd);
         }
 
         return [
@@ -76,6 +77,13 @@ export default class CheckboxItem extends Node {
   get rulePlugins() {
     return [checkboxRule];
   }
+
+  handleTouchEnd = (event: TouchEvent) => {
+    // Prevent the browser from generating a synthetic click event (300ms delay)
+    // and bypass ProseMirror's first-tap-to-focus behavior on mobile.
+    event.preventDefault();
+    this.handleClick(event);
+  };
 
   handleClick = (event: Event) => {
     if (!(event.target instanceof HTMLSpanElement)) {

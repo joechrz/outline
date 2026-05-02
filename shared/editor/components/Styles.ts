@@ -1643,6 +1643,7 @@ ul.checkbox_list {
   .checkbox {
     display: inline-block;
     cursor: var(--pointer);
+    touch-action: manipulation;
     pointer-events: ${
       props.readOnly && !props.readOnlyWriteCheckboxes ? "none" : "initial"
     };
@@ -1651,14 +1652,14 @@ ul.checkbox_list {
     height: 24px;
     min-width: 24px;
     position: relative;
-    top: 1px;
+    top: 0px;
     transition: transform 100ms ease-in-out;
     opacity: .8;
     margin: 0 0.5em 0 0;
     background-size: contain;
     background-repeat: no-repeat;
 
-    background-image: ${`url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M3 0C1.34315 0 0 1.34315 0 3V11C0 12.6569 1.34315 14 3 14H11C12.6569 14 14 12.6569 14 11V3C14 1.34315 12.6569 0 11 0H3ZM3 2C2.44772 2 2 2.44772 2 3V11C2 11.5523 2.44772 12 3 12H11C11.5523 12 12 11.5523 12 11V3C12 2.44772 11.5523 2 11 2H3Z' fill='${props.theme.text.replace(
+    background-image: ${`url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M3 0C1.34315 0 0 1.34315 0 3V11C0 12.6569 1.34315 14 3 14H11C12.6569 14 14 12.6569 14 11V3C14 1.34315 12.6569 0 11 0H3ZM3 1.5C2.17157 1.5 1.5 2.17157 1.5 3V11C1.5 11.8284 2.17157 12.5 3 12.5H11C11.8284 12.5 12.5 11.8284 12.5 11V3C12.5 2.17157 11.8284 1.5 11 1.5H3Z' fill='${props.theme.text.replace(
       "#",
       "%23"
     )}' /%3E%3C/svg%3E%0A");`}

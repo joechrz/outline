@@ -34,7 +34,7 @@ export default () =>
       port: 3001,
       host: true,
       https: httpsConfig,
-      allowedHosts: host ? [host] : undefined,
+      allowedHosts: host ? [host, "media.local"] : ["media.local"],
       cors: true,
       fs:
         environment.NODE_ENV === "development"
