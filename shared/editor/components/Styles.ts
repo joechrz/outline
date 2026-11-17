@@ -1533,6 +1533,10 @@ ol li {
   &:active {
     transform: scale(0.98);
   }
+
+  @media (pointer: coarse) {
+    display: none;
+  }
 }
 
 .${EditorStyleHelper.checklistWrapper}:${hover} .${EditorStyleHelper.checklistCompletedToggle},
